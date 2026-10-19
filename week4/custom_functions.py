@@ -33,5 +33,12 @@ def cross_bridge(distance):
     return 1
 
 
-cross_bridge(3)
-cross_bridge(6)
+def climb_ladder(steps_remain, steps_crossed):
+    if steps_remain > steps_crossed:
+        print("Still some way to go!")
+    else:
+        print("We are almost there")
+
+
+climb_ladder(5, 2)
+climb_ladder(2, 5)
