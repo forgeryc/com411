@@ -12,7 +12,7 @@ def identify():
 
 
 def escape_by(plan):
-    if plan.lower() == "jumping over"):
+    if plan.lower() == "jumping over":
         print("We can't escape that way!")
     elif plan.lower() == "running around":
         print("We cannot escape that way!, the boulder is moving too fast!")
