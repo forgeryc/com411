@@ -57,3 +57,26 @@ def create_ladder():
     return num
 
 
+def sum_weights(c_weight, i_weight):
+    return c_weight + i_weight
+
+
+def calc_weight(c_weight, i_weight):
+    avg = c_weight + i_weight / 2
+    return avg
+
+
+def run():
+    c_weight = int(input("What is the weight of the person? \n "))
+    i_weight = int(input("What is the weight of their inventory? \n "))
+    option = str(input("What would you like to calculate (sum or average)? \n "))
+    if option.lower() == "sum":
+            sum = sum_weights(c_weight, i_weight)
+            print(f"The sum is: {sum}")
+    elif option.lower() == "average":
+        avg = calc_weight(c_weight, i_weight)
+        print(f"The average is: {avg}")
+    else:
+        print("No valid option entered")
+
+
