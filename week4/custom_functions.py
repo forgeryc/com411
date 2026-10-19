@@ -22,6 +22,16 @@ def escape_by(plan):
         print("We cannot escape that way!, the boulder is in the way!")
 
 
-escape_by("jumping over")
-escape_by("running around")
-escape_by("cross bridge ahead")
+def cross_bridge(distance):
+    for i in range(distance):
+        if i <= 5:
+            print("Crossed step")
+        else:
+            print("The bridge is collapsing!")
+            return 0
+    print("We must keep going")
+    return 1
+
+
+cross_bridge(3)
+cross_bridge(6)
