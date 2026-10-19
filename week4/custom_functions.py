@@ -1,3 +1,6 @@
+from collections.abc import Iterable
+
+
 def listen():
     sound = str(input("Enter a sound: "))
     print(f"That was a loud {sound}!")
@@ -40,5 +43,17 @@ def climb_ladder(steps_remain, steps_crossed):
         print("We are almost there")
 
 
-climb_ladder(5, 2)
-climb_ladder(2, 5)
+def display_ladder(steps):
+    for i in range(steps):
+        print("""
+        | |
+        ***
+        """
+        )
+
+
+def create_ladder():
+    num = int(input("Enter the number of steps: "))
+    return num
+
+
