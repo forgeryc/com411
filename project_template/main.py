@@ -13,4 +13,7 @@ import visual
 
 tui.title_screen("Disneyland Review Analyser")
 process.open_file()
-tui.menu("View Data", "Visualise Data")
+if tui.menu("View Data", "Visualise Data") == "a":
+        tui.view_data()
+else:
+        tui.visualise_data()

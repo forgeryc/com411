@@ -6,7 +6,11 @@ A function may also need to format and/or structure a response e.g. return a lis
 Any errors or invalid inputs should be handled appropriately.
 Please note that you do not need to read the data file or perform any other such processing in this module.
 """
-
+def sanitise(input):
+    # .lower() converts the inputs to lowercase for Sanitisation
+    # .strip() removes whitespace for sanitisation
+    input.lower()
+    input.strip()
 
 def title_screen(title):
     dashes = ""
@@ -28,22 +32,21 @@ def menu(choice1, choice2):
     [B] {choice2}
     [X] Exit
     """))
-    # .lower() converts the inputs to lowercase for Sanitisation
-    # .strip() removes whitespace for sanitisation
-    show_menu.lower()
-    show_menu.strip()
-    confirm_response(show_menu)
-    if show_menu == "x":
-        return None
-    elif show_menu == "a":
-        print(f"You have chosen option A - {choice1}")
-        view_data()
-    elif show_menu == "b":
-        print(f"You have chosen option B - {choice2}")
+    sanitise(show_menu)
+    if confirm_response(show_menu) == True:
+        if show_menu == "x":
+            return None
+        elif show_menu == "a":
+            print(f"You have chosen option A - {choice1}")
+            return "a"
+        elif show_menu == "b":
+            print(f"You have chosen option B - {choice2}")
+            return "b"
+        else:
+            print("Invalid option - please enter a valid input")
+            menu(choice1, choice2)
     else:
-        print("Invalid option - please enter a valid input")
         menu(choice1, choice2)
-        return None
 
 def confirm_response(option):
     print(f"You have chosen option {option}")
@@ -58,7 +61,7 @@ def confirm_response(option):
         confirm_response(option)
         return None
 
-print(f"")
+
 def view_data():
     show_menu = str(input("""Please enter one of the following options:
         [A] View Reviews by Park
@@ -67,6 +70,12 @@ def view_data():
         [D] Average Score per Park by Reviewer Location
         [X] Exit
         """))
+    sanitise(show_menu)
+    if confirm_response(show_menu) == True:
+        if show_menu == "x":
+            return None
+        elif show_menu == "a":
+            reviews_by_park("disney")
 
 def visualise_data():
     show_menu = str(input(f"""
@@ -76,4 +85,19 @@ def visualise_data():
         [C] Most Popular Month by Park
         [X] Exit
         """))
-view_data()
+
+def reviews_by_park(park1):
+    which = str(input(f"""Which park would you like to see reviews for?
+    [A] $(park1)
+    [X] Exit
+     """))
+    sanitise(which)
+    if which == "x"
+        return 0
+    elif which == "a":
+        # put here printing the entire file.
+    else:
+        print("Invalid option - please enter a valid input (A/X")
+        reviews_by_park(park1)
+
+def number_of_reviews(park, reviewer):
