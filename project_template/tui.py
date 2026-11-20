@@ -6,6 +6,9 @@ A function may also need to format and/or structure a response e.g. return a lis
 Any errors or invalid inputs should be handled appropriately.
 Please note that you do not need to read the data file or perform any other such processing in this module.
 """
+import csv
+
+
 def sanitise(input):
     # .lower() converts the inputs to lowercase for Sanitisation
     # .strip() removes whitespace for sanitisation
@@ -61,7 +64,7 @@ def confirm_response(option):
         confirm_response(option)
         return None
 
-
+# menu option a
 def view_data():
     show_menu = str(input("""Please enter one of the following options:
         [A] View Reviews by Park
@@ -75,8 +78,9 @@ def view_data():
         if show_menu == "x":
             return None
         elif show_menu == "a":
-            reviews_by_park("disney")
+            reviews_by_park("Hong Kong", "California", "Paris")
 
+#menu option b
 def visualise_data():
     show_menu = str(input(f"""
         Please enter the letter which corresponds with your desired menu choice:
@@ -85,19 +89,36 @@ def visualise_data():
         [C] Most Popular Month by Park
         [X] Exit
         """))
-
-def reviews_by_park(park1):
+#view_data option A menu
+def reviews_by_park(park1, park2, park3):
     which = str(input(f"""Which park would you like to see reviews for?
     [A] $(park1)
+    [B] $(park2)
+    [C] $(park3)
     [X] Exit
      """))
     sanitise(which)
     if which == "x"
         return 0
     elif which == "a":
-        # put here printing the entire file.
+        # print all records with location = hongkong
+        print_all_reviews(Disneyland_HongKong)
+    elif which = "b":
+        print_all_reviews
+    elif which = "c"
+        #Paris
     else:
         print("Invalid option - please enter a valid input (A/X")
         reviews_by_park(park1)
+
+# View data option A functionality - ask if this should be in process?
+def print_all_reviews(park)
+    with open("data/disneyland_reviews.csv") as f:
+        reader = csv.reader(f)
+        # header variable
+        header = next(reader)
+        for line in reader:
+            if line[4] == park:
+                print(line)
 
 def number_of_reviews(park, reviewer):
